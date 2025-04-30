@@ -27,10 +27,10 @@ export const MENUS: MenuData[] = [
     key: "experiences",
   },
   {
-    label: "GALLERY",
-    href: "https://gallery.rfqm.xyz",
-    target: "_blank",
-    key: "gallery",
+    label: "GALLERIES",
+    href: "/galleries",
+    target: "_self",
+    key: "galleries",
   },
   {
     label: "RESUME",
