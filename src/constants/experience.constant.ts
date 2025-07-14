@@ -9,7 +9,7 @@ export const EXPERIENCES: ExperienceData[] = [
   {
     time: "JUN '24 - NOV '24",
     site: "PT. Pertamina EP Cepu",
-    role: "Software Engineer",
+    role: "Software Engineer Intern",
   },
   {
     time: "JUL '23 - SEP '23",
