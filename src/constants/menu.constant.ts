@@ -34,7 +34,7 @@ export const MENUS: MenuData[] = [
   },
   {
     label: "RESUME",
-    href: "https://nc.rfqm.xyz/s/EsAWsfzFf65iQia",
+    href: "https://nc.rfqm.xyz/s/pMmFQyJcdMP4eXW",
     target: "_blank",
     key: "resume",
   },
