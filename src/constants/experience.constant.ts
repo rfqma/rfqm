@@ -13,8 +13,8 @@ export const EXPERIENCES: ExperienceData[] = [
   },
   {
     time: "JUL '23 - SEP '23",
-    site: "PT. Angkasa Pura I, Yogyakarta International Airport",
-    role: "Airport Quality Management Intern Staff",
+    site: "PT. Angkasa Pura I",
+    role: "Yogyakarta International Airport, Airport Quality Management Intern Staff",
   },
   {
     time: "APR '23 - MAY '23",
