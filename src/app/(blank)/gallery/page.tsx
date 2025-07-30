@@ -1,14 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Gallery } from "next-gallery";
+import { Gallery, Image } from "next-gallery";
 import Link from "next/link";
 
-type ImageProps = {
-  src: string;
-  aspect_ratio: number;
+interface ImageProps extends Image {
   pexels_url: string;
-};
+}
 
 export default function Galleries() {
   const [images, setImages] = useState<ImageProps[]>([]);
@@ -25,11 +23,15 @@ export default function Galleries() {
 
       const data = await results.json();
 
-      const src = data.images.map((image: any) => {
+      const src: ImageProps[] = data.images.map((image: any) => {
         return {
-          src: image.src.original,
+          src: image.src.large,
           aspect_ratio: image.width / image.height,
           pexels_url: image.url,
+          alt: image.alt || "Image from Pexels",
+          nextImageProps: {
+            loading: "lazy",
+          },
         };
       });
       setImages(src);

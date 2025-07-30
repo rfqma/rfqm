@@ -27,10 +27,10 @@ export const MENUS: MenuData[] = [
     key: "experiences",
   },
   {
-    label: "GALLERIES",
-    href: "/galleries",
+    label: "GALLERY",
+    href: "/gallery",
     target: "_self",
-    key: "galleries",
+    key: "gallery",
   },
   {
     label: "RESUME",
