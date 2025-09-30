@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Chivo_Mono } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/navigation";
-import Link from "next/link";
 
 const chivoMono = Chivo_Mono({
   variable: "--font-chivo-mono",
@@ -24,11 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-custom-background">
       <head>
         <meta name="apple-mobile-web-app-title" content="rfqm.xyz" />
       </head>
-      <body className={`${chivoMono.variable} antialiased`}>{children}</body>
+      <body className={`${chivoMono.className} antialiased`}>{children}</body>
     </html>
   );
 }

@@ -1,8 +1,40 @@
-import { EXPERIENCES } from "@/constants/experience.constant";
+export interface ExperienceData {
+  site: string;
+  time: string;
+  role: string;
+}
+
+const EXPERIENCES: ExperienceData[] = [
+  {
+    time: "JAN '25 - PRESENT",
+    site: "Techave",
+    role: "Front End Developer",
+  },
+  {
+    time: "JUN '24 - NOV '24",
+    site: "PT. Pertamina EP Cepu",
+    role: "Software Engineer Intern",
+  },
+  {
+    time: "JUL '23 - SEP '23",
+    site: "PT. Angkasa Pura I",
+    role: "Yogyakarta International Airport, Airport Quality Management Intern Staff",
+  },
+  {
+    time: "APR '23 - MAY '23",
+    site: "Techave",
+    role: "Front End Developer",
+  },
+  {
+    time: "DEC '20 - NOV '21",
+    site: "Mora Studio",
+    role: "Videographer",
+  },
+];
 
 export default function Experiences() {
   return (
-    <section className="flex min-h-screen md:items-center md:justify-center mt-10 md:mt-0 w-full">
+    <section className="flex h-screen md:items-center md:justify-center mt-10 md:mt-0 w-full">
       <div className="flex flex-col items-start justify-start max-w-xl gap-2">
         <h2 className=" rounded-lg text-sm font-medium">
           QUICK SUMMARY OF MY MOST RECENT EXPERIENCES
@@ -11,7 +43,7 @@ export default function Experiences() {
           {EXPERIENCES.map((item, index) => {
             return (
               <li key={index}>
-                {index !== 0 && <hr className="bg-[#ededed]" />}
+                {index !== 0 && <hr className="bg-custom-foreground" />}
                 <div className="timeline-middle">
                   {index !== EXPERIENCES.length - 1 ? (
                     <svg
@@ -42,12 +74,14 @@ export default function Experiences() {
                   )}
                 </div>
                 <div className="timeline-end timeline-box flex flex-col">
-                  <span className="text-xs">{item.time}</span>
-                  <span className="text-sm font-semibold">{item.site}</span>
-                  <span className="textxs">{item.role}</span>
+                  <span className="text-xs text-background">{item.time}</span>
+                  <span className="text-sm font-semibold text-background">
+                    {item.site}
+                  </span>
+                  <span className="textxs text-background">{item.role}</span>
                 </div>
                 {index !== EXPERIENCES.length - 1 && (
-                  <hr className="bg-[#ededed]" />
+                  <hr className="bg-custom-foreground" />
                 )}
               </li>
             );

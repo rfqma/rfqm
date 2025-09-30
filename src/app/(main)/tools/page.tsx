@@ -19,7 +19,7 @@ const iconSlugs = [
   "postgresql",
   "firebase",
   "nginx",
-  "vercel",
+  // "vercel",
   "docker",
   "git",
   "github",
@@ -50,12 +50,12 @@ const iconSlugs = [
 
 export default function Tools() {
   return (
-    <section className="flex min-h-screen md:items-center md:justify-center mt-10 md:mt-0 w-full">
+    <section className="flex h-screen md:items-center md:justify-center mt-10 md:mt-0 w-full">
       <div className="flex flex-col items-start justify-start max-w-xl gap-2">
         <h2 className=" rounded-lg text-sm font-medium">
           TOOLS OR TECHNOLOGIES I&#39;VE BEEN WORKING WITH
         </h2>
-        <div className="relative flex h-full w-full max-w-4xl items-center justify-center overflow-hidden rounded-lg bg-custom-background p-0 md:p-8">
+        <div className="relative flex w-full max-w-4xl items-center justify-center overflow-hidden rounded-lg bg-custom-background p-0 md:p-8">
           <IconCloud iconSlugs={iconSlugs} />
         </div>
       </div>

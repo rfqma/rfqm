@@ -4,8 +4,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --custom-background: #2b2b2b;
-  --custom-foreground: #ededed;
+  --custom-background: #fbfbfb;
+  --custom-foreground: #2b2b2b;
 }
 
 @theme inline {
@@ -15,14 +15,6 @@
   --color-custom-foreground: var(--custom-foreground);
   --font-mono: var(--font-chivo-mono);
 }
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --custom-background: #18181b;
-  }
-} */
 
 body {
   background: var(--custom-background);
@@ -35,4 +27,15 @@ body {
       --timeline-col-end,
       minmax(0, 1fr)
     );
+}
+
+.timeline-box {
+  border: var(--border) solid;
+  border-radius: var(--radius-box);
+  border-color: var(--color-base-300);
+  background-color: var(--color-custom-foreground);
+  padding-inline: calc(0.25rem /* 4px */ * 4) /* 1rem = 16px */;
+  padding-block: calc(0.25rem /* 4px */ * 2) /* 0.5rem = 8px */;
+  font-size: 0.75rem /* 12px */;
+  box-shadow: 0 1px 2px 0 oklch(0% 0 0/0.05);
 }
