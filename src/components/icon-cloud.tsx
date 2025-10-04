@@ -15,8 +15,8 @@ export const cloudProps: Omit<ICloud, "children"> = {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      width: "100%",
-      paddingTop: 40,
+      width: "75%",
+      paddingTop: 20,
     },
   },
   options: {
@@ -74,7 +74,7 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
     if (!data) return null;
 
     return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, "dark")
+      renderCustomIcon(icon, "dark"),
     );
   }, [data]);
 

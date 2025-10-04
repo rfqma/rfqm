@@ -27,4 +27,16 @@ interface Image {
   alt: string;
 }
 
-export type { Response, Image };
+interface SocialData {
+  label: string;
+  href: string;
+  target: string;
+}
+
+export interface ExperienceData {
+  site: string;
+  time: string;
+  role: string;
+}
+
+export type { Response, Image, SocialData };
