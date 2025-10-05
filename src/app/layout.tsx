@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Chivo_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -9,16 +9,15 @@ const chivoMono = Chivo_Mono({
   fallback: ["system-ui", "arial"],
 });
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-  viewportFit: "cover",
-};
-
 export const metadata: Metadata = {
   title: "rfqma/maruarchive",
   description: "software engineer and photographer",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
+    viewportFit: "cover",
+  },
   keywords: [
     "Rifqi Maulana",
     "rfqma",
@@ -69,7 +68,7 @@ export const metadata: Metadata = {
     siteName: "rfqma/maruarchive",
     images: [
       {
-        url: "/opengraph.jpg",
+        url: "https://rfqm.xyz/opengraph.jpg",
         width: 1200,
         height: 630,
         alt: "rfqma/maruarchive",
@@ -82,7 +81,7 @@ export const metadata: Metadata = {
     description: "software engineer and photographer",
     images: [
       {
-        url: "/opengraph.jpg",
+        url: "https://rfqm.xyz/opengraph.jpg",
         width: 1200,
         height: 630,
         alt: "rfqma/maruarchive",

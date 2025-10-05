@@ -136,10 +136,12 @@ export default function Room({
   onScreenClickAction,
   onCloseAction,
   isDesktopView,
+  isMobile,
 }: {
   onScreenClickAction: () => void;
   onCloseAction: () => void;
   isDesktopView: boolean;
+  isMobile: boolean;
 }) {
   const { nodes, materials } = useGLTF(
     "/models/room.glb",
@@ -314,30 +316,32 @@ export default function Room({
                   material={materials["Material.004"]}
                 />
               </group>
-              <group
-                position={[-26.129, 44.04, -20.304]}
-                rotation={[-Math.PI / 2, 0, 1.837]}
-                scale={[15.465, 15.406, 16.071]}
-              >
-                <mesh
-                  geometry={nodes.Cube052_Material005_0.geometry}
-                  material={materials["Material.005"]}
-                  receiveShadow
-                />
-                <mesh
-                  geometry={nodes.Cube052_Material021_0.geometry}
-                  material={materials["Material.021"]}
-                  receiveShadow
-                />
-                <mesh
-                  geometry={nodes.Circle003_Material005_0.geometry}
-                  material={materials["Material.005"]}
-                  position={[0, 0.725, -2.187]}
-                  rotation={[-Math.PI / 2, 0, 0]}
-                  scale={[6.811, 6.554, 6.836]}
-                  receiveShadow
-                />
-              </group>
+              {!isDesktopView && !isMobile && (
+                <group
+                  position={[-26.129, 44.04, -20.304]}
+                  rotation={[-Math.PI / 2, 0, 1.837]}
+                  scale={[15.465, 15.406, 16.071]}
+                >
+                  <mesh
+                    geometry={nodes.Cube052_Material005_0.geometry}
+                    material={materials["Material.005"]}
+                    receiveShadow
+                  />
+                  <mesh
+                    geometry={nodes.Cube052_Material021_0.geometry}
+                    material={materials["Material.021"]}
+                    receiveShadow
+                  />
+                  <mesh
+                    geometry={nodes.Circle003_Material005_0.geometry}
+                    material={materials["Material.005"]}
+                    position={[0, 0.725, -2.187]}
+                    rotation={[-Math.PI / 2, 0, 0]}
+                    scale={[6.811, 6.554, 6.836]}
+                    receiveShadow
+                  />
+                </group>
+              )}
               <group
                 position={[-25.094, 46.809, -70.853]}
                 rotation={[-2.041, 0.02, -0.352]}
@@ -540,10 +544,10 @@ export default function Room({
                     >
                       <Html
                         className="content"
-                        rotation-x={-Math.PI / 40}
-                        rotation-y={Math.PI / 2.4}
+                        rotation-x={-Math.PI / 39}
+                        rotation-y={Math.PI / 2.34}
                         rotation-z={Math.PI / 40}
-                        position={[-78, 67, -22]}
+                        position={[-78, 67, -22.4]}
                         transform
                         occlude
                         style={{

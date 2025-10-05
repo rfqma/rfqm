@@ -8,14 +8,14 @@ import {
 } from "@react-three/drei";
 import * as THREE from "three";
 import Room from "@/components/room";
-import { Fragment, useState, useRef, useEffect } from "react";
+import { Fragment, useState, useRef, useEffect, useMemo } from "react";
 // import { useHelper } from "@react-three/drei";
 // import { useRef } from "react";
 import Audio from "@/components/audio";
 import Welcome from "@/components/welcome";
 
 function Lights() {
-  const goboTexture = useTexture("/gobo.webp");
+  const goboTexture = useTexture("/gobo.png");
   // const spotLightRef = useRef<THREE.SpotLight>(null!);
 
   // useHelper(spotLightRef, THREE.SpotLightHelper, "cyan");
@@ -72,23 +72,39 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement>(null!);
   const cameraControlsRef = useRef<CameraControls>(null!);
 
+  const isMobile = useMemo(() => {
+    return typeof window !== "undefined" && window.innerWidth < 768;
+  }, []);
+
   useEffect(() => {
     if (cameraControlsRef.current) {
       if (isDesktopView) {
-        cameraControlsRef.current.setLookAt(
-          -3,
-          10,
-          0,
-          -78.785,
-          0,
-          -22.837,
-          true,
-        );
+        if (isMobile) {
+          cameraControlsRef.current.setLookAt(
+            7,
+            10,
+            2.2,
+            -78.785,
+            0,
+            -22.837,
+            true,
+          );
+        } else {
+          cameraControlsRef.current.setLookAt(
+            -3,
+            10,
+            0,
+            -78.785,
+            0,
+            -22.837,
+            true,
+          );
+        }
       } else {
         cameraControlsRef.current.setLookAt(50, 50, 50, 0, 0, 0, true);
       }
     }
-  }, [isDesktopView]);
+  }, [isDesktopView, isMobile]);
 
   const handleEnter = () => {
     setEntered(true);
@@ -99,7 +115,7 @@ export default function Home() {
   };
 
   return (
-    <main className="w-full h-screen bg-gray-900">
+    <main className="w-full h-screen bg-gray-950">
       {!isEntered && <Welcome onEnterAction={handleEnter} />}
 
       <Audio ref={audioRef} />
@@ -115,6 +131,7 @@ export default function Home() {
         <Lights />
         <Room
           isDesktopView={isDesktopView}
+          isMobile={isMobile}
           onCloseAction={() => setDesktopView(false)}
           onScreenClickAction={() => setDesktopView((prev) => !prev)}
         />

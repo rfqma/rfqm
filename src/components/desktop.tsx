@@ -173,9 +173,9 @@ export default function Desktop({
           <h1 className="text-2xl font-bold">My Desktop</h1>
           <button
             onClick={onCloseAction}
-            className="bg-red-500 px-4 py-2 rounded hover:bg-red-600 cursor-pointer"
+            className="bg-red-800 px-3 py-1 rounded hover:bg-red-900 cursor-pointer"
           >
-            Close
+            Exit
           </button>
         </div>
 
@@ -186,33 +186,33 @@ export default function Desktop({
               className="cursor-pointer hover:opacity-90 w-full text-white text-sm flex flex-col gap-1"
               onClick={() => setSelectedMenu("ABOUT")}
             >
-              <span className="text-4xl">📄</span>
+              <span className="text-3xl">📄</span>
               <span>Me</span>
             </div>
             <div
               className="cursor-pointer hover:opacity-90 w-full text-white text-sm flex flex-col gap-1"
               onClick={() => setSelectedMenu("SOCIALS")}
             >
-              <span className="text-4xl">📁</span>
+              <span className="text-3xl">📁</span>
               <span>Socials</span>
             </div>
             <div
               className="cursor-pointer hover:opacity-90 w-full text-white text-sm flex flex-col gap-1"
               onClick={() => setSelectedMenu("TOOLS")}
             >
-              <span className="text-4xl">🛠️</span>
+              <span className="text-3xl">🛠️</span>
               <span>Tools</span>
             </div>
             <div
               className="cursor-pointer hover:opacity-90 w-full text-white text-sm flex flex-col gap-1"
               onClick={() => setSelectedMenu("EXPERIENCES")}
             >
-              <span className="text-4xl">💼</span>
+              <span className="text-3xl">💼</span>
               <span>Experiences</span>
             </div>
             <Link href={"https://www.pexels.com/@maruarchive/"} target="_blank">
               <div className="cursor-pointer hover:opacity-90 w-full text-white text-sm flex flex-col gap-1">
-                <span className="text-4xl">🖼️</span>
+                <span className="text-3xl">🖼️</span>
                 <span>Gallery</span>
               </div>
             </Link>
@@ -220,7 +220,7 @@ export default function Desktop({
               className="cursor-pointer hover:opacity-90 w-full text-white text-sm flex flex-col gap-1"
               onClick={() => setSelectedMenu("CREDITS")}
             >
-              <span className="text-4xl">ℹ️</span>
+              <span className="text-3xl">ℹ️</span>
               <span>Credits</span>
             </div>
           </div>
