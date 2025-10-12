@@ -1,11 +1,12 @@
 "use client";
 
-import { Fragment, Suspense, useRef } from "react";
+import { Fragment, Suspense, useRef, lazy } from "react";
 import { useGLTF, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { GLTF } from "three-stdlib";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import Desktop from "@/components/desktop";
+
+const Desktop = lazy(() => import("@/components/desktop"));
 
 type GLTFResult = GLTF & {
   nodes: {

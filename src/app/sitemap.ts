@@ -4,12 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://rfqm.xyz";
   const currentDate = new Date();
 
-  const baseRoutes = [
-    "", // home
-    "/experiences",
-    "/socials",
-    "/tools",
-  ];
+  const baseRoutes = [""];
 
   // Generate sitemap entries
   const sitemapEntries: MetadataRoute.Sitemap = [];
@@ -32,13 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     if (route === "") {
       priority = 0.9;
       changeFrequency = "daily";
-    } else if (
-      route === "/experiences" ||
-      route === "/socials" ||
-      route === "/tools"
-    ) {
-      priority = 0.8;
-      changeFrequency = "weekly";
     } else {
       priority = 0.6;
       changeFrequency = "monthly";
