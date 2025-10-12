@@ -1,13 +1,13 @@
 name: build and deploy production
 
+env:
+  REGISTRY_URL: ghcr.io
+  FULL_IMAGE_NAME: ghcr.io/rfqma/rfqm-prod
+  NEW_TAG: ${{ github.sha }}
+
 on:
   push:
     branches: ["main"]
-
-env:
-  REGISTRY_URL: ghcr.io
-  FULL_IMAGE_NAME: ${{ env.REGISTRY_URL }}/rfqma/rfqm-prod
-  NEW_TAG: ${{ github.sha }}
 
 jobs:
   build-and-deploy:
