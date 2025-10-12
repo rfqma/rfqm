@@ -29,7 +29,6 @@ jobs:
           install: true
   build-and-deploy:
     if: github.event_name == 'push'
-    needs: check-build
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
