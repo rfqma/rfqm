@@ -1,0 +1,44 @@
+name: build and deploy staging
+
+on:
+  push:
+    branches: ["staging"]
+
+env:
+  REGISTRY_URL: ghcr.io
+  FULL_IMAGE_NAME: ${{ env.REGISTRY_URL }}/rfqma/rfqm-prod
+  NEW_TAG: ${{ github.sha }}
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: staging
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          context: .
+          tags: |
+            ${{ env.FULL_IMAGE_NAME }}:latest
+            ${{ env.FULL_IMAGE_NAME }}:${{ env.NEW_TAG }}
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ~/devops/rfqm-staging
+
+            docker login ghcr.io -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
+
+            docker compose pull rfqm-staging
+            docker compose up -d
+
+            echo "done!"
