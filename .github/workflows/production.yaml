@@ -1,13 +1,13 @@
 name: build and deploy production
 
-env:
-  REGISTRY_URL: ghcr.io
-  FULL_IMAGE_NAME: ghcr.io/${{ github.actor }}/rfqm-prod
-  NEW_TAG: ${{ github.sha }}
-
 on:
   push:
     branches: ["main"]
+
+env:
+  REGISTRY_URL: registry.rfqm.xyz
+  FULL_IMAGE_NAME: registry.rfqm.xyz/rfqm
+  IMAGE_TAG: prod
 
 jobs:
   build-and-deploy:
@@ -18,12 +18,12 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v4
 
-      - name: authenticate to ghcr
+      - name: authenticate to registry
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY_URL }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
 
       - name: build and push docker image
         uses: docker/build-push-action@v6
@@ -31,8 +31,8 @@ jobs:
           push: true
           context: .
           tags: |
-            ${{ env.FULL_IMAGE_NAME }}:latest
-            ${{ env.FULL_IMAGE_NAME }}:${{ env.NEW_TAG }}
+            ${{ env.FULL_IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+            ${{ env.FULL_IMAGE_NAME }}:${{ github.sha }}
 
       - name: deploy via ssh
         uses: appleboy/ssh-action@v1.0.3
@@ -43,7 +43,7 @@ jobs:
           script: |
             cd ~/devops/rfqm-prod
 
-            docker login ghcr.io -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
+            docker login ${{ env.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
 
             docker compose pull rfqm-prod
             docker compose up -d
