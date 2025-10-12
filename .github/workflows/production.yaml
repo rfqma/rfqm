@@ -3,6 +3,8 @@ name: build and deploy production
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 env:
   REGISTRY_URL: registry.rfqm.xyz
@@ -10,7 +12,29 @@ env:
   IMAGE_TAG: prod
 
 jobs:
+  check-build:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout pr branch
+        uses: actions/checkout@v4
+
+      - name: node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: install dependencies
+        run: npm install
+
+      - name: next build
+        run: npm run build
+
   build-and-deploy:
+    if: github.event_name == 'push'
+    needs: check-build
     runs-on: ubuntu-latest
     environment: production
 
@@ -43,7 +67,7 @@ jobs:
           script: |
             cd ~/devops/rfqm-prod
 
-            docker login ${{ env.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
+            echo "${{ secrets.REGISTRY_PASSWORD }}" | docker login ${{ env.REGISTRY_URL }} -u ${{ secrets.REGISTRY_USERNAME }} --password-stdin
 
             docker compose pull rfqm-prod
             docker compose up -d
