@@ -1,23 +1,24 @@
-import type { Metadata } from "next";
-import { Chivo_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const chivoMono = Chivo_Mono({
+const chivoMono = Geist_Mono({
   variable: "--font-chivo-mono",
   subsets: ["latin"],
   preload: true,
   fallback: ["system-ui", "arial"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+};
+
 export const metadata: Metadata = {
   title: "rfqma/maruarchive",
   description: "software engineer and photographer",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    viewportFit: "cover",
-  },
   keywords: [
     "Rifqi Maulana",
     "rfqma",
@@ -96,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-custom-background">
+    <html lang="en" className="bg-background">
       <head>
         <meta name="apple-mobile-web-app-title" content="rfqm.xyz" />
       </head>

@@ -1,6 +1,6 @@
-import { ExperienceData, SocialData } from "@/types";
+import { Experience, Social } from "@/types";
 
-const EXPERIENCES: ExperienceData[] = [
+const EXPERIENCES: Experience[] = [
   {
     time: "JAN '25 - PRESENT",
     site: "Techave",
@@ -28,7 +28,7 @@ const EXPERIENCES: ExperienceData[] = [
   },
 ];
 
-const SOCIALS: SocialData[] = [
+const SOCIALS: Social[] = [
   {
     label: "INFO@RFQM.XYZ",
     href: "https://mail.google.com/mail/?view=cm&fs=1&to=info@rfqm.xyz",
@@ -109,4 +109,13 @@ const iconSlugs = [
   "adobelightroomclassic",
 ];
 
-export { EXPERIENCES, SOCIALS, iconSlugs };
+// const asciiChars = '@B%8WM#*oahkbdpwmZO0QlLnJ1iYwfeEcrgjq' + 'xnuvtDVpPXCJTKUW$RYB?>+<!%&/()=\',.:;-_ ';
+// const asciiChars = '@B%8WM#*oahkbdpwmZO0QlLnJ1iYwfeEcrgjq';
+
+// source: https://www.youtube.com/watch?v=55iwMYv8tGI&t=3s
+// const asciiChars = 'Ñ@#W$9876543210?!abc;:+=-,._';
+// const asciiChars = '       .:-i|=+%O#@';
+// const asciiChars = '        .:░▒▓█';
+const ASCII_CHARS = " .,:;i1tfcLCXO0W@";
+
+export { EXPERIENCES, SOCIALS, ASCII_CHARS, iconSlugs };
