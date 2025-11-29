@@ -1,37 +1,32 @@
-import type { Metadata, Viewport } from "next";
-import { Geist_Mono } from "next/font/google";
+import type { Metadata } from "next";
+import { Manrope } from "next/font/google";
 import "./globals.css";
+import { SmoothCursor } from "@/components/magicui/smooth-cursor";
 
-const chivoMono = Geist_Mono({
-  variable: "--font-chivo-mono",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
-  preload: true,
-  fallback: ["system-ui", "arial"],
+  display: "swap",
 });
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 5,
-  viewportFit: "cover",
-};
-
 export const metadata: Metadata = {
-  title: "rfqma/maruarchive",
-  description: "software engineer and photographer",
+  metadataBase: new URL("https://rfqm.xyz"),
+  applicationName: "rfqm.xyz",
+  title: "Rifqi Maulana",
+  description: "fullstack developer and photographer",
   keywords: [
-    "Rifqi Maulana",
+    "rifqi maulana",
+    "rfqm",
     "rfqma",
     "maruarchive",
-    "Software",
-    "Engineer",
-    "Software Engineer",
-    "Photographer",
-    "Developer",
+    "photographer",
+    "fullstack developer",
+    "frontend developer",
+    "backend developer",
+    "software engineer",
+    "indonesia",
+    "web developer",
   ],
-  authors: [{ name: "Rifqi Maulana", url: "https://github.com/rfqma" }],
-  creator: "Rifqi Maulana",
-  publisher: "Rifqi Maulana",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -45,7 +40,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-  manifest: "/manifest.json",
+  manifest: "./manifest.json",
   robots: {
     index: true,
     follow: true,
@@ -61,31 +56,28 @@ export const metadata: Metadata = {
     sitemap: "https://rfqm.xyz/sitemap.xml",
   },
   openGraph: {
+    title: "Rifqi Maulana",
     type: "website",
     locale: "en_US",
     url: "https://rfqm.xyz",
-    title: "rfqma/maruarchive",
-    description: "software engineer and photographer",
-    siteName: "rfqma/maruarchive",
+    description: "fullstack developer and photographer",
+    siteName: "rfqm.xyz",
     images: [
       {
         url: "https://rfqm.xyz/opengraph.jpg",
         width: 1200,
         height: 630,
-        alt: "rfqma/maruarchive",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "rfqma/maruarchive",
-    description: "software engineer and photographer",
+    title: "Rifqi Maulana",
     images: [
       {
         url: "https://rfqm.xyz/opengraph.jpg",
         width: 1200,
         height: 630,
-        alt: "rfqma/maruarchive",
       },
     ],
   },
@@ -101,7 +93,12 @@ export default function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-title" content="rfqm.xyz" />
       </head>
-      <body className={`${chivoMono.className} antialiased`}>{children}</body>
+      <body className={`${manrope.className} antialiased cursor-none`}>
+        <main className="max-w-2xl mx-auto px-6 py-12 sm:py-16">
+          {children}
+        </main>
+        <SmoothCursor />
+      </body>
     </html>
   );
 }
