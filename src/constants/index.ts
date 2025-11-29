@@ -1,112 +1,96 @@
-import { ExperienceData, SocialData } from "@/types";
+import type { Experience, Project, Social } from "@/types";
 
-const EXPERIENCES: ExperienceData[] = [
+const EXPERIENCES: Experience[] = [
   {
-    time: "JAN '25 - PRESENT",
+    startTime: "2025-01-01",
+    endTime: null,
     site: "Techave",
-    role: "Front End Developer",
+    role: "Frontend Developer",
   },
   {
-    time: "JUN '24 - NOV '24",
+    startTime: "2024-06-01",
+    endTime: "2024-11-30",
     site: "PT. Pertamina EP Cepu",
     role: "Software Engineer Intern",
   },
   {
-    time: "JUL '23 - SEP '23",
-    site: "PT. Angkasa Pura I",
-    role: "Yogyakarta International Airport, Airport Quality Management Intern Staff",
+    startTime: "2023-07-01",
+    endTime: "2023-09-30",
+    site: "PT. Angkasa Pura I, Yogyakarta International Airport",
+    role: "Airport Quality Management Intern Staff",
   },
   {
-    time: "APR '23 - MAY '23",
+    startTime: "2023-04-01",
+    endTime: "2023-05-31",
     site: "Techave",
-    role: "Front End Developer",
+    role: "Frontend Developer Freelance",
   },
   {
-    time: "DEC '20 - NOV '21",
+    startTime: "2020-12-01",
+    endTime: "2021-11-30",
     site: "Mora Studio",
-    role: "Videographer",
+    role: "Videographer Freelance",
   },
 ];
 
-const SOCIALS: SocialData[] = [
+const SOCIALS: Social[] = [
   {
-    label: "INFO@RFQM.XYZ",
-    href: "https://mail.google.com/mail/?view=cm&fs=1&to=info@rfqm.xyz",
+    label: "Mail",
+    href: "mailto:hello@rfqm.xyz",
     target: "_blank",
+    icon: "tabler:mail-filled",
   },
   {
-    label: "GITHUB",
+    label: "GitHub",
     href: "https://github.com/rfqma",
     target: "_blank",
+    icon: "tabler:brand-github-filled",
   },
   {
-    label: "LINKEDIN",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/in/rfqma",
     target: "_blank",
+    icon: "mdi:linkedin",
   },
   {
-    label: "INSTAGRAM",
+    label: "Instagram",
     href: "https://instagram.com/maruarchive",
     target: "_blank",
+    icon: "basil:instagram-solid",
   },
   {
-    label: "PEXELS",
+    label: "Pexels",
     href: "https://www.pexels.com/@rifqi-maulana-286675026/",
     target: "_blank",
+    icon: "simple-icons:pexels",
   },
   {
-    label: "YOUTUBE",
+    label: "YouTube",
     href: "https://www.youtube.com/@maruarchive",
     target: "_blank",
+    icon: "mdi:youtube",
   },
 ];
 
-const iconSlugs = [
-  "typescript",
-  "javascript",
-  "dart",
-  "react",
-  "flutter",
-  "android",
-  "html5",
-  "css3",
-  "nodedotjs",
-  "express",
-  "nextdotjs",
-  "prisma",
-  // 'amazonaws',
-  "googlecloud",
-  "mongodb",
-  "postgresql",
-  "firebase",
-  "nginx",
-  // "vercel",
-  "docker",
-  "git",
-  "github",
-  "gitlab",
-  "visualstudiocode",
-  "androidstudio",
-  "figma",
-  "tailwindcss",
-  "adobepremierepro",
-  "nextui",
-  "nextcloud",
-  "hono",
-  "contabo",
-  "ubuntu",
-  "php",
-  "phpmyadmin",
-  "laravel",
-  "supabase",
-  "mysql",
-  "cloudflare",
-  "cloudinary",
-  "cplusplus",
-  "python",
-  "adobeaftereffects",
-  "davinciresolve",
-  "adobelightroomclassic",
+const PROJECTS: Project[] = [
+  {
+    title: "Chandra Karya Nusantara",
+    description: "Building construction landing site",
+    href: "https://cknkonstruksi.com",
+    year: "2025",
+  },
+  {
+    title: "Donahue",
+    description: "Fashion bag landing site",
+    href: "https://donahuejogja.com",
+    year: "2025",
+  },
+  {
+    title: "Kawan Antar",
+    description: "Uber but localized",
+    href: "https://kawanantar.com",
+    year: "2025",
+  },
 ];
 
-export { EXPERIENCES, SOCIALS, iconSlugs };
+export { EXPERIENCES, SOCIALS, PROJECTS };
