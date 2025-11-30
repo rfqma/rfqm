@@ -17,7 +17,7 @@ const EXPERIENCES: Experience[] = [
     startTime: "2023-07-01",
     endTime: "2023-09-30",
     site: "PT. Angkasa Pura I, Yogyakarta International Airport",
-    role: "Airport Quality Management Intern Staff",
+    role: "Airport Quality Management Staff Intern",
   },
   {
     startTime: "2023-04-01",
@@ -75,13 +75,13 @@ const SOCIALS: Social[] = [
 const PROJECTS: Project[] = [
   {
     title: "Chandra Karya Nusantara",
-    description: "Building construction landing site",
+    description: "Building construction company landing site",
     href: "https://cknkonstruksi.com",
     year: "2025",
   },
   {
     title: "Donahue",
-    description: "Fashion bag landing site",
+    description: "Fashion bag brand landing site",
     href: "https://donahuejogja.com",
     year: "2025",
   },

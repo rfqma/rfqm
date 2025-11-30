@@ -1,11 +1,11 @@
-import { Project } from "@/types";
 import Link from "next/link";
-import CustomIconify from "./CustomIconify";
+import CustomIconify from "@/components/CustomIconify";
+import { Project } from "@/types";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <Link href={project.href} target="_blank">
-      <div className="flex justify-between p-2 items-center cursor-pointer hover:bg-inner-card-bg rounded-md transition-all duration-300 group hover:scale-101">
+    <Link href={project.href} target="_blank" className="cursor-none">
+      <div className="flex justify-between p-2 items-center cursor-none hover:bg-inner-card-bg rounded-md transition-all duration-300 group hover:scale-101">
         <div className="flex flex-col gap-1">
           <span className="font-medium text-sm">{project.title}</span>
           <span className="text-xs text-foreground-muted">{project.year}</span>

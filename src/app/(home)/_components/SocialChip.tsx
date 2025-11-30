@@ -1,6 +1,6 @@
-import { Social } from "@/types";
 import Link from "next/link";
-import CustomIconify from "./CustomIconify";
+import CustomIconify from "@/components/CustomIconify";
+import { Social } from "@/types";
 
 const SocialChip = ({ item }: { item: Social }) => {
   return (
