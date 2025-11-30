@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import CustomIconify from "./CustomIconify";
-import { Avatar, AvatarFallback } from "./ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import CustomIconify from "@/components/CustomIconify";
 import { Experience } from "@/types";
 
 interface TimelineProps {

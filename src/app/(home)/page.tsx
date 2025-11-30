@@ -8,10 +8,11 @@ import {
 import { Marquee } from "@/components/magicui/marquee";
 import { Highlighter } from "@/components/magicui/highlighter";
 import { TextAnimate } from "@/components/magicui/text-animate";
-import SocialChip from "@/components/SocialChip";
-import { Timeline } from "@/components/Timeline";
+import SocialChip from "./_components/SocialChip";
+import { Timeline } from "./_components/Timeline";
+import ProjectCard from "./_components/ProjectCard";
+import { Paperclip } from "lucide-react";
 import { SOCIALS, EXPERIENCES, PROJECTS } from "@/constants";
-import ProjectCard from "@/components/ProjectCard";
 
 const page = () => {
   return (
@@ -90,7 +91,14 @@ const page = () => {
         </div>
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex justify-between items-center">
+        <Link
+          href={"https://www.cake.me/resumes/rfqma"}
+          className="flex items-center text-icon text-xs gap-2 cursor-none"
+        >
+          <Paperclip className="size-3" />
+          Resume
+        </Link>
         <span className="text-icon text-xs">© 2025 Rifqi Maulana</span>
       </div>
     </>
