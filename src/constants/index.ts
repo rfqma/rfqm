@@ -7,12 +7,12 @@ const EXPERIENCES: Experience[] = [
     site: "Techave",
     role: "Frontend Developer",
   },
-  {
-    startTime: "2024-06-01",
-    endTime: "2024-11-30",
-    site: "PT. Pertamina EP Cepu",
-    role: "Software Engineer Intern",
-  },
+  // {
+  //   startTime: "2024-06-01",
+  //   endTime: "2024-11-30",
+  //   site: "PT. Pertamina EP Cepu",
+  //   role: "Software Engineer Intern",
+  // },
   {
     startTime: "2023-07-01",
     endTime: "2023-09-30",
