@@ -99,7 +99,9 @@ const page = () => {
           <Paperclip className="size-3" />
           Resume
         </Link>
-        <span className="text-icon text-xs">© 2025 Rifqi Maulana</span>
+        <span className="text-icon text-xs">
+          © {new Date().getFullYear()} Rifqi Maulana
+        </span>
       </div>
     </>
   );
