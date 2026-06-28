@@ -11,5 +11,5 @@ createRoot(document.getElementById("root")!).render(
       <Home />
     </main>
     <SmoothCursor />
-  </StrictMode>,
+  </StrictMode>
 );

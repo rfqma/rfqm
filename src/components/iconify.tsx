@@ -7,7 +7,7 @@ const Iconify = (props: IconProps) => {
 
   const mergedStyle = React.useMemo<React.CSSProperties>(
     () => ({ flexShrink: 0, ...(style as React.CSSProperties | undefined) }),
-    [style],
+    [style]
   );
 
   const placeholderStyle = React.useMemo<React.CSSProperties>(
@@ -20,7 +20,7 @@ const Iconify = (props: IconProps) => {
       borderRadius: "8px",
       animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
     }),
-    [mergedStyle, fontSize, color],
+    [mergedStyle, fontSize, color]
   );
 
   React.useEffect(() => {
