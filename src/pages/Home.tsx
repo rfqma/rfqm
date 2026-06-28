@@ -1,30 +1,24 @@
-import Link from "next/link";
-import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Marquee } from "@/components/magicui/marquee";
-import { Highlighter } from "@/components/magicui/highlighter";
-import { TextAnimate } from "@/components/magicui/text-animate";
-import SocialChip from "./_components/SocialChip";
-import { Timeline } from "./_components/Timeline";
-import ProjectCard from "./_components/ProjectCard";
+import { Highlighter } from "@/components/highlighter";
+import { Marquee } from "@/components/marquee";
+import { TextAnimate } from "@/components/text-animate";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/tooltip";
+import { EXPERIENCES, PROJECTS, SOCIALS } from "@/constants";
 import { Paperclip } from "lucide-react";
-import { SOCIALS, EXPERIENCES, PROJECTS } from "@/constants";
+import ProjectCard from "./components/ProjectCard";
+import SocialChip from "./components/SocialChip";
+import { Timeline } from "./components/Timeline";
 
-const page = () => {
+export function Home() {
   return (
     <>
       <div className="py-6 flex items-center gap-4">
         <div className="relative size-11 outline select-none rounded-full outline-card-border overflow-hidden">
-          <Image
+          <img
             src={"/logo.png"}
             alt="Rifqi Maulana"
             width={100}
             height={100}
-            priority
+            className="size-full"
           />
         </div>
         <div className="flex flex-col">
@@ -39,13 +33,14 @@ const page = () => {
           </TextAnimate>
           <span className="leading-snug font-semibold text-foreground-muted whitespace-nowrap text-sm">
             Frontend Developer at{" "}
-            <Link
+            <a
               href={"https://techave.dev"}
               target="_blank"
+              rel="noreferrer"
               className="underline underline-offset-2 transition-colors duration-300 ease-out hover:text-foreground"
             >
               Techave
-            </Link>
+            </a>
           </span>
         </div>
       </div>
@@ -67,8 +62,8 @@ const page = () => {
             <SocialChip key={index} item={item} />
           ))}
         </Marquee>
-        <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r"></div>
-        <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+        <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-linear-to-r" />
+        <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l" />
       </div>
 
       <div className="py-12">
@@ -92,19 +87,17 @@ const page = () => {
       </div>
 
       <div className="flex justify-between items-center">
-        <Link
+        <a
           href={"https://www.cake.me/resumes/rfqma"}
           className="flex items-center text-icon text-xs gap-2 cursor-none"
         >
           <Paperclip className="size-3" />
           Resume
-        </Link>
+        </a>
         <span className="text-icon text-xs">
           © {new Date().getFullYear()} Rifqi Maulana
         </span>
       </div>
     </>
   );
-};
-
-export default page;
+}
