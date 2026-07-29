@@ -165,7 +165,6 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <head>
         <meta name="apple-mobile-web-app-title" content="rfqm.me" />
-        <link rel="canonical" href="https://rfqm.me" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
