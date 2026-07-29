@@ -1,56 +1,22 @@
-name: build and deploy production
+name: Deploy Worker
 
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
 env:
-  REGISTRY_URL: ${{ secrets.REGISTRY_URL }}
-  REGISTRY_USERNAME: ${{ secrets.REGISTRY_USERNAME }}
-  REGISTRY_PASSWORD: ${{ secrets.REGISTRY_PASSWORD }}
-  FULL_IMAGE_NAME: ${{ secrets.REGISTRY_URL }}/${{ github.event.repository.name }}-prod
-  NEW_TAG: ${{ github.sha }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
 jobs:
-  build-and-deploy:
-    if: github.event_name == 'push'
+  deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 60
 
     steps:
-      - name: checkout code
-        uses: actions/checkout@v4
-
-      - name: authenticate to registry
-        uses: docker/login-action@v3
+      - uses: actions/checkout@v6
+      - name: Build & Deploy Worker
+        uses: cloudflare/wrangler-action@v3
         with:
-          registry: ${{ env.REGISTRY_URL }}
-          username: ${{ env.REGISTRY_USERNAME }}
-          password: ${{ env.REGISTRY_PASSWORD }}
-
-      - name: build and push docker image
-        uses: docker/build-push-action@v6
-        with:
-          push: true
-          context: .
-          tags: |
-            ${{ env.FULL_IMAGE_NAME }}:latest
-            ${{ env.FULL_IMAGE_NAME }}:${{ github.sha }}
-
-      - name: deploy via ssh
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          script: |
-            cd ~/docker/apps/${{ github.event.repository.name }}-prod
-
-            echo "${{ env.REGISTRY_PASSWORD }}" | docker login ${{ env.REGISTRY_URL }} -u ${{ env.REGISTRY_USERNAME }} --password-stdin
-
-            docker compose pull ${{ github.event.repository.name }}-prod
-            docker compose up -d
-
-            echo "done!"
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
