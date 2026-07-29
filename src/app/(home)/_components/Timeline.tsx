@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
+import Iconify from "@/components/Iconify";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import CustomIconify from "@/components/CustomIconify";
-import { Experience } from "@/types";
+import type { Experience } from "@/types";
 
 interface TimelineProps {
   experiences: Experience[];
@@ -24,14 +24,14 @@ export function Timeline({ experiences, label = "Timeline" }: TimelineProps) {
                 <Avatar className="size-10">
                   <AvatarFallback className="bg-inner-card-bg border border-inner-card-border">
                     {
-                      <CustomIconify
+                      <Iconify
                         icon={
                           experience.endTime
                             ? "mdi:progress-check"
                             : "mdi:progress-clock"
                         }
                         fontSize={16}
-                        color=""
+
                         className={
                           experience.endTime ? "text-[#016630]" : "text-icon"
                         }
@@ -47,9 +47,7 @@ export function Timeline({ experiences, label = "Timeline" }: TimelineProps) {
                   <span className="font-medium">{experience.site}</span>
 
                   <div className="bg-inner-card-bg border border-inner-card-border rounded-full ml-auto text-xs text-foreground-muted px-2">
-                    {`${dayjs(experience.startTime)
-                      .format("MMM 'YY")
-                      .toLowerCase()} - ${
+                    {`${dayjs(experience.startTime).format("MMM 'YY").toLowerCase()} - ${
                       experience.endTime
                         ? dayjs(experience.endTime)
                             .format("MMM 'YY")
@@ -61,11 +59,6 @@ export function Timeline({ experiences, label = "Timeline" }: TimelineProps) {
                 <span className="text-foreground-muted text-xs">
                   {experience.role}
                 </span>
-                {experience.description && (
-                  <p className="text-foreground-muted text-xs mt-1">
-                    {experience.description}
-                  </p>
-                )}
               </div>
             </div>
           ))}

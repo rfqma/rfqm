@@ -1,18 +1,12 @@
-import Link from "next/link";
 import Image from "next/image";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import Link from "next/link";
+import { Highlighter } from "@/components/highlighter-wrapper";
 import { Marquee } from "@/components/magicui/marquee";
-import { Highlighter } from "@/components/magicui/highlighter";
-import { TextAnimate } from "@/components/magicui/text-animate";
+import { TextAnimate } from "@/components/text-animate-wrapper";
+import { EXPERIENCES, PROJECTS, SOCIALS } from "@/constants";
+import ProjectCard from "./_components/ProjectCard";
 import SocialChip from "./_components/SocialChip";
 import { Timeline } from "./_components/Timeline";
-import ProjectCard from "./_components/ProjectCard";
-import { Paperclip } from "lucide-react";
-import { SOCIALS, EXPERIENCES, PROJECTS } from "@/constants";
 
 const page = () => {
   return (
@@ -60,9 +54,7 @@ const page = () => {
           <Highlighter action="underline" color="#ffffff">
             simple and intuitive
           </Highlighter>{" "}
-          things people can click, swipe, and enjoy. With expertise in frontend
-          development, I build responsive web applications that deliver
-          exceptional user experiences.
+          things people can click, swipe, and enjoy.
         </p>
       </section>
 
@@ -73,41 +65,27 @@ const page = () => {
               <SocialChip key={index} item={item} />
             ))}
           </Marquee>
-          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r"></div>
-          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
+          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-linear-to-r"></div>
+          <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l"></div>
         </div>
       </nav>
 
       <section className="py-12" aria-label="Work experience">
-        <Timeline experiences={EXPERIENCES} label="Experience" />
+        <Timeline experiences={EXPERIENCES} label="Journey" />
       </section>
 
       <section className="pb-12" aria-label="Selected projects">
         <div className="space-y-6">
-          <h2 className="font-semibold text-base">Selected Work</h2>
+          <h2 className="font-semibold text-base">Selected Works</h2>
           <div className="flex flex-col gap-1">
             {PROJECTS.map((project, index) => (
-              <Tooltip key={index}>
-                <TooltipTrigger asChild>
-                  <ProjectCard project={project} />
-                </TooltipTrigger>
-                <TooltipContent>{project.description}</TooltipContent>
-              </Tooltip>
+              <ProjectCard key={index} project={project} />
             ))}
           </div>
         </div>
       </section>
 
-      <footer className="flex justify-between items-center">
-        <Link
-          href={"https://www.cake.me/resumes/rfqma"}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center text-icon text-xs gap-2 cursor-none"
-        >
-          <Paperclip className="size-3" />
-          Resume
-        </Link>
+      <footer className="flex justify-end items-center">
         <span className="text-icon text-xs">
           © {new Date().getFullYear()} Rifqi Maulana. All rights reserved.
         </span>

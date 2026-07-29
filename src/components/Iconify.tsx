@@ -1,15 +1,15 @@
 "use client";
 
+import { Icon, type IconProps } from "@iconify/react";
 import React from "react";
-import { Icon, IconProps } from "@iconify/react/dist/iconify.js";
 
-const CustomIconify = (props: IconProps) => {
-  const { color = "white", fontSize = "0.75rem", style, ...rest } = props;
+const Iconify = (props: IconProps) => {
+  const { fontSize = "0.75rem", style, className, ...rest } = props;
   const [isLoading, setIsLoading] = React.useState(true);
 
   const mergedStyle = React.useMemo<React.CSSProperties>(
     () => ({ flexShrink: 0, ...(style as React.CSSProperties | undefined) }),
-    [style]
+    [style],
   );
 
   const placeholderStyle = React.useMemo<React.CSSProperties>(
@@ -17,12 +17,11 @@ const CustomIconify = (props: IconProps) => {
       ...mergedStyle,
       width: fontSize,
       height: fontSize,
-      backgroundColor: color === "white" ? "#ffffff" : color,
       opacity: 0.2,
       borderRadius: "8px",
       animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
     }),
-    [mergedStyle, fontSize, color]
+    [mergedStyle, fontSize],
   );
 
   React.useEffect(() => {
@@ -55,11 +54,11 @@ const CustomIconify = (props: IconProps) => {
       <>
         <div style={placeholderStyle} />
         <Icon
-          color={color}
           fontSize={fontSize}
           style={{ ...mergedStyle, visibility: "hidden" }}
           onLoad={handleLoad}
           onError={handleError}
+          className={className}
           {...rest}
         />
       </>
@@ -67,8 +66,13 @@ const CustomIconify = (props: IconProps) => {
   }
 
   return (
-    <Icon color={color} fontSize={fontSize} style={mergedStyle} {...rest} />
+    <Icon
+      fontSize={fontSize}
+      style={mergedStyle}
+      className={className}
+      {...rest}
+    />
   );
 };
 
-export default React.memo(CustomIconify);
+export default React.memo(Iconify);

@@ -12,7 +12,6 @@ interface Experience {
   endTime?: string | null;
   site: string;
   role: string;
-  description?: string;
 }
 
 interface Project {
@@ -22,4 +21,4 @@ interface Project {
   year: string;
 }
 
-export type { Social, Experience, Project };
+export type { Experience, Project, Social };

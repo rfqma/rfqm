@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
-import { SmoothCursor } from "@/components/magicui/smooth-cursor";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -13,11 +12,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rfqm.me"),
   applicationName: "rfqm.me",
   title: {
-    default: "Rifqi Maulana - Frontend Developer & Photographer",
+    default: "Rifqi Maulana - Frontend Developer",
     template: "%s | Rifqi Maulana",
   },
   description:
-    "Rifqi Maulana is a frontend developer and photographer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications with React, Next.js, and TypeScript.",
+    "Frontend developer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications with React, Next.js, and TypeScript.",
   keywords: [
     "rifqi maulana",
     "rfqm",
@@ -72,33 +71,33 @@ export const metadata: Metadata = {
     canonical: "https://rfqm.me",
   },
   openGraph: {
-    title: "Rifqi Maulana - Frontend Developer & Photographer",
+    title: "Rifqi Maulana - Frontend Developer",
     type: "website",
     locale: "en_US",
     url: "https://rfqm.me",
     description:
-      "Rifqi Maulana is a frontend developer and photographer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications.",
+      "Frontend developer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications.",
     siteName: "rfqm.me",
     images: [
       {
         url: "https://rfqm.me/opengraph.jpg",
         width: 1200,
         height: 630,
-        alt: "Rifqi Maulana - Frontend Developer and Photographer",
+        alt: "Rifqi Maulana - Frontend Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rifqi Maulana - Frontend Developer & Photographer",
+    title: "Rifqi Maulana - Frontend Developer",
     description:
-      "Rifqi Maulana is a frontend developer and photographer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications.",
+      "Frontend developer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications.",
     images: [
       {
         url: "https://rfqm.me/opengraph.jpg",
         width: 1200,
         height: 630,
-        alt: "Rifqi Maulana - Frontend Developer and Photographer",
+        alt: "Rifqi Maulana - Frontend Developer",
       },
     ],
   },
@@ -117,8 +116,7 @@ export default function RootLayout({
       url: "https://rfqm.me",
       image: "https://rfqm.me/opengraph.jpg",
       jobTitle: "Frontend Developer",
-      description:
-        "Frontend developer and photographer based in Yogyakarta, Indonesia",
+      description: "Frontend developer based in Yogyakarta, Indonesia",
       worksFor: {
         "@type": "Organization",
         name: "Techave",
@@ -152,8 +150,7 @@ export default function RootLayout({
       "@type": "WebSite",
       name: "Rifqi Maulana",
       url: "https://rfqm.me",
-      description:
-        "Personal portfolio of Rifqi Maulana - Frontend Developer and Photographer",
+      description: "Personal portfolio of Rifqi Maulana - Frontend Developer",
       author: {
         "@type": "Person",
         name: "Rifqi Maulana",
@@ -164,17 +161,25 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-background">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <meta name="apple-mobile-web-app-title" content="rfqm.me" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${manrope.className} antialiased cursor-none`}>
+      <body
+        className={`${manrope.className} antialiased`}
+        suppressHydrationWarning
+      >
         <main className="max-w-2xl mx-auto px-6 py-12 sm:py-16">
           {children}
         </main>
-        <SmoothCursor />
       </body>
     </html>
   );
