@@ -61,6 +61,11 @@ export function Timeline({ experiences, label = "Timeline" }: TimelineProps) {
                 <span className="text-foreground-muted text-xs">
                   {experience.role}
                 </span>
+                {experience.description && (
+                  <p className="text-foreground-muted text-xs mt-1">
+                    {experience.description}
+                  </p>
+                )}
               </div>
             </div>
           ))}

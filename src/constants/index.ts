@@ -6,37 +6,39 @@ const EXPERIENCES: Experience[] = [
     endTime: null,
     site: "Techave",
     role: "Frontend Developer",
+    description:
+      "Building modern web applications with React and Next.js, focusing on performance and user experience.",
   },
-  // {
-  //   startTime: "2024-06-01",
-  //   endTime: "2024-11-30",
-  //   site: "PT. Pertamina EP Cepu",
-  //   role: "Software Engineer Intern",
-  // },
   {
     startTime: "2023-07-01",
     endTime: "2023-09-30",
     site: "PT. Angkasa Pura I, Yogyakarta International Airport",
     role: "Airport Quality Management Staff Intern",
+    description:
+      "Assisted in quality management processes and documentation for airport operations.",
   },
   {
     startTime: "2023-04-01",
     endTime: "2023-05-31",
     site: "Techave",
     role: "Frontend Developer Freelance",
+    description:
+      "Developed responsive websites and web applications for clients using modern frontend technologies.",
   },
   {
     startTime: "2020-12-01",
     endTime: "2021-11-30",
     site: "Mora Studio",
     role: "Videographer Freelance",
+    description:
+      "Created video content and visual stories for various clients and projects.",
   },
 ];
 
 const SOCIALS: Social[] = [
   {
     label: "Mail",
-    href: "mailto:hello@rfqm.xyz",
+    href: "mailto:hello@rfqm.me",
     target: "_blank",
     icon: "tabler:mail-filled",
   },
@@ -75,19 +77,22 @@ const SOCIALS: Social[] = [
 const PROJECTS: Project[] = [
   {
     title: "Chandra Karya Nusantara",
-    description: "Building construction company landing site",
+    description:
+      "Building construction company landing page built with Next.js and Tailwind CSS, featuring modern design and responsive layout.",
     href: "https://cknkonstruksi.com",
     year: "2025",
   },
   {
     title: "Donahue",
-    description: "Fashion bag brand landing site",
+    description:
+      "Fashion bag brand landing site with elegant design, built using modern web technologies for optimal performance.",
     href: "https://donahuejogja.com",
     year: "2025",
   },
   {
     title: "Kawan Antar",
-    description: "Uber but localized",
+    description:
+      "Localized transportation service platform, a ride-hailing solution adapted for the Indonesian market.",
     href: "https://kawanantar.com",
     year: "2025",
   },

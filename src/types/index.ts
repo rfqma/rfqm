@@ -12,6 +12,7 @@ interface Experience {
   endTime?: string | null;
   site: string;
   role: string;
+  description?: string;
 }
 
 interface Project {
