@@ -35,8 +35,6 @@ jobs:
         with:
           push: true
           context: .
-          secrets: |
-            NEXT_PUBLIC_PLACEHOLDER=placeholder
           tags: |
             ${{ env.FULL_IMAGE_NAME }}:latest
             ${{ env.FULL_IMAGE_NAME }}:${{ github.sha }}
