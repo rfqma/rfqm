@@ -1,7 +1,7 @@
-import Iconify from "@/components/iconify";
-import { Avatar, AvatarFallback } from "@/components/avatar";
-import type { Experience } from "@/types";
 import dayjs from "dayjs";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import CustomIconify from "@/components/CustomIconify";
+import { Experience } from "@/types";
 
 interface TimelineProps {
   experiences: Experience[];
@@ -24,7 +24,7 @@ export function Timeline({ experiences, label = "Timeline" }: TimelineProps) {
                 <Avatar className="size-10">
                   <AvatarFallback className="bg-inner-card-bg border border-inner-card-border">
                     {
-                      <Iconify
+                      <CustomIconify
                         icon={
                           experience.endTime
                             ? "mdi:progress-check"

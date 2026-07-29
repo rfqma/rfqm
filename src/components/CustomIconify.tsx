@@ -1,13 +1,15 @@
-import { Icon, type IconProps } from "@iconify/react/dist/iconify.js";
-import React from "react";
+"use client";
 
-const Iconify = (props: IconProps) => {
+import React from "react";
+import { Icon, IconProps } from "@iconify/react/dist/iconify.js";
+
+const CustomIconify = (props: IconProps) => {
   const { color = "white", fontSize = "0.75rem", style, ...rest } = props;
   const [isLoading, setIsLoading] = React.useState(true);
 
   const mergedStyle = React.useMemo<React.CSSProperties>(
     () => ({ flexShrink: 0, ...(style as React.CSSProperties | undefined) }),
-    [style],
+    [style]
   );
 
   const placeholderStyle = React.useMemo<React.CSSProperties>(
@@ -20,7 +22,7 @@ const Iconify = (props: IconProps) => {
       borderRadius: "8px",
       animation: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
     }),
-    [mergedStyle, fontSize, color],
+    [mergedStyle, fontSize, color]
   );
 
   React.useEffect(() => {
@@ -69,4 +71,4 @@ const Iconify = (props: IconProps) => {
   );
 };
 
-export default React.memo(Iconify);
+export default React.memo(CustomIconify);

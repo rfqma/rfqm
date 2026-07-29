@@ -1,24 +1,30 @@
-import { Highlighter } from "@/components/highlighter";
-import { Marquee } from "@/components/marquee";
-import { TextAnimate } from "@/components/text-animate";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/tooltip";
-import { EXPERIENCES, PROJECTS, SOCIALS } from "@/constants";
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Marquee } from "@/components/magicui/marquee";
+import { Highlighter } from "@/components/magicui/highlighter";
+import { TextAnimate } from "@/components/magicui/text-animate";
+import SocialChip from "./_components/SocialChip";
+import { Timeline } from "./_components/Timeline";
+import ProjectCard from "./_components/ProjectCard";
 import { Paperclip } from "lucide-react";
-import ProjectCard from "./components/ProjectCard";
-import SocialChip from "./components/SocialChip";
-import { Timeline } from "./components/Timeline";
+import { SOCIALS, EXPERIENCES, PROJECTS } from "@/constants";
 
-export function Home() {
+const page = () => {
   return (
     <>
       <div className="py-6 flex items-center gap-4">
         <div className="relative size-11 outline select-none rounded-full outline-card-border overflow-hidden">
-          <img
+          <Image
             src={"/logo.png"}
             alt="Rifqi Maulana"
             width={100}
             height={100}
-            className="size-full"
+            priority
           />
         </div>
         <div className="flex flex-col">
@@ -33,14 +39,13 @@ export function Home() {
           </TextAnimate>
           <span className="leading-snug font-semibold text-foreground-muted whitespace-nowrap text-sm">
             Frontend Developer at{" "}
-            <a
+            <Link
               href={"https://techave.dev"}
               target="_blank"
-              rel="noreferrer"
               className="underline underline-offset-2 transition-colors duration-300 ease-out hover:text-foreground"
             >
               Techave
-            </a>
+            </Link>
           </span>
         </div>
       </div>
@@ -62,8 +67,8 @@ export function Home() {
             <SocialChip key={index} item={item} />
           ))}
         </Marquee>
-        <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-linear-to-r" />
-        <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-linear-to-l" />
+        <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r"></div>
+        <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
       </div>
 
       <div className="py-12">
@@ -87,17 +92,19 @@ export function Home() {
       </div>
 
       <div className="flex justify-between items-center">
-        <a
+        <Link
           href={"https://www.cake.me/resumes/rfqma"}
           className="flex items-center text-icon text-xs gap-2 cursor-none"
         >
           <Paperclip className="size-3" />
           Resume
-        </a>
+        </Link>
         <span className="text-icon text-xs">
           © {new Date().getFullYear()} Rifqi Maulana
         </span>
       </div>
     </>
   );
-}
+};
+
+export default page;

@@ -1,5 +1,7 @@
+"use client";
+
+import { FC, useEffect, useRef } from "react";
 import { motion, useSpring } from "motion/react";
-import { type FC, useEffect, useRef } from "react";
 
 interface Position {
   x: number;
@@ -18,7 +20,6 @@ export interface SmoothCursorProps {
 
 const DefaultCursorSVG: FC = () => {
   return (
-    // biome-ignore lint/a11y/noSvgWithoutTitle: decorative cursor svg
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={50}
@@ -129,7 +130,7 @@ export function SmoothCursor({
       updateVelocity(currentPos);
 
       const speed = Math.sqrt(
-        velocity.current.x ** 2 + velocity.current.y ** 2
+        Math.pow(velocity.current.x, 2) + Math.pow(velocity.current.y, 2)
       );
 
       cursorX.set(currentPos.x);

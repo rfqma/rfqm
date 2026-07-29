@@ -1,14 +1,15 @@
-import Iconify from "@/components/iconify";
-import type { Social } from "@/types";
+import Link from "next/link";
+import CustomIconify from "@/components/CustomIconify";
+import { Social } from "@/types";
 
 const SocialChip = ({ item }: { item: Social }) => {
   return (
-    <a href={item.href} target={item.target} rel="noreferrer">
+    <Link href={item.href} target={item.target}>
       <div className="bg-inner-card-bg rounded-full py-2 px-3 flex gap-2 items-center hover:bg-inner-card-bg/70 transition-colors duration-200">
-        <Iconify icon={item.icon} fontSize={16} />
+        <CustomIconify icon={item.icon} fontSize={16} />
         <span className="text-sm font-medium">{item.label}</span>
       </div>
-    </a>
+    </Link>
   );
 };
 
