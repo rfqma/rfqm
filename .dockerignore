@@ -4,6 +4,7 @@ node_modules
 .github
 Dockerfile
 .dockerignore
+nginx.conf
 .env
 .env.*
 README.md

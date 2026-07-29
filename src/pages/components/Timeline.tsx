@@ -1,5 +1,5 @@
-import { Avatar, AvatarFallback } from "@/components/avatar";
 import Iconify from "@/components/iconify";
+import { Avatar, AvatarFallback } from "@/components/avatar";
 import type { Experience } from "@/types";
 import dayjs from "dayjs";
 
