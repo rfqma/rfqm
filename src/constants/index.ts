@@ -69,20 +69,20 @@ const SOCIALS: Social[] = [
 const PROJECTS: Project[] = [
   {
     title: "Chandra Karya Nusantara",
-    description: "Building construction company landing page",
+    description: "Building construction company landing website with content management system.",
     href: "https://cknkonstruksi.com",
     year: "2025",
   },
   {
     title: "Donahue",
-    description: "Fashion bag brand landing site",
+    description: "Luxury fashion bag landing website with content management system.",
     href: "https://donahuejogja.com",
     year: "2025",
   },
   {
     title: "Kawan Antar",
-    description: "Localized transportation service platform",
-    href: "https://kawanantar.com",
+    description: "WhatsApp based platform that connects customers with local drivers.",
+    href: "https://kawanantar.rfqm.me",
     year: "2025",
   },
 ];
