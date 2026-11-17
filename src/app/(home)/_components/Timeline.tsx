@@ -25,16 +25,9 @@ export function Timeline({ experiences, label = "Timeline" }: TimelineProps) {
                   <AvatarFallback className="bg-inner-card-bg border border-inner-card-border">
                     {
                       <Iconify
-                        icon={
-                          experience.endTime
-                            ? "mdi:progress-check"
-                            : "mdi:progress-clock"
-                        }
+                        icon={experience.endTime ? "mdi:progress-check" : "mdi:progress-clock"}
                         fontSize={16}
-
-                        className={
-                          experience.endTime ? "text-[#016630]" : "text-icon"
-                        }
+                        className={experience.endTime ? "text-[#016630]" : "text-icon"}
                       />
                     }
                   </AvatarFallback>
@@ -49,16 +42,12 @@ export function Timeline({ experiences, label = "Timeline" }: TimelineProps) {
                   <div className="bg-inner-card-bg border border-inner-card-border rounded-full ml-auto text-xs text-foreground-muted px-2">
                     {`${dayjs(experience.startTime).format("MMM 'YY").toLowerCase()} - ${
                       experience.endTime
-                        ? dayjs(experience.endTime)
-                            .format("MMM 'YY")
-                            .toLowerCase()
+                        ? dayjs(experience.endTime).format("MMM 'YY").toLowerCase()
                         : "present"
                     }`}
                   </div>
                 </div>
-                <span className="text-foreground-muted text-xs">
-                  {experience.role}
-                </span>
+                <span className="text-foreground-muted text-xs">{experience.role}</span>
               </div>
             </div>
           ))}

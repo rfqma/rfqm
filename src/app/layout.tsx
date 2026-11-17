@@ -162,24 +162,15 @@ export default function RootLayout({
     <html lang="en" className="bg-background">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="apple-mobile-web-app-title" content="rfqm.me" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${manrope.className} antialiased`}
-        suppressHydrationWarning
-      >
-        <main className="max-w-2xl mx-auto px-6 py-12 sm:py-16">
-          {children}
-        </main>
+      <body className={`${manrope.className} antialiased`} suppressHydrationWarning>
+        <main className="max-w-2xl mx-auto px-6 py-12 sm:py-16">{children}</main>
       </body>
     </html>
   );

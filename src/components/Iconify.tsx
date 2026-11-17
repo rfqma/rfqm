@@ -65,14 +65,7 @@ const Iconify = (props: IconProps) => {
     );
   }
 
-  return (
-    <Icon
-      fontSize={fontSize}
-      style={mergedStyle}
-      className={className}
-      {...rest}
-    />
-  );
+  return <Icon fontSize={fontSize} style={mergedStyle} className={className} {...rest} />;
 };
 
 export default React.memo(Iconify);
