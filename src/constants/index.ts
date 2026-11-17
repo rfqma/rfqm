@@ -79,11 +79,17 @@ const PROJECTS: Project[] = [
     href: "https://donahuejogja.com",
     year: "2025",
   },
+  // {
+  //   title: "Kawan Antar",
+  //   description: "WhatsApp based platform that connects customers with local drivers.",
+  //   href: "https://kawanantar.rfqm.me",
+  //   year: "2025",
+  // },
   {
-    title: "Kawan Antar",
-    description: "WhatsApp based platform that connects customers with local drivers.",
-    href: "https://kawanantar.rfqm.me",
-    year: "2025",
+    title: "The Tuan Kuase",
+    description: "Private club website for programs, expeditions, and publications with content management system.",
+    href: "https://thetuankuase.id",
+    year: "2026",
   },
 ];
 
