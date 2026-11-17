@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Highlighter } from "@/components/highlighter-wrapper";
 import { Marquee } from "@/components/magicui/marquee";
 import { TextAnimate } from "@/components/text-animate-wrapper";
-import { EXPERIENCES, PROJECTS, SOCIALS } from "@/constants";
+import { EXPERIENCES, OSS, PROJECTS, SOCIALS } from "@/constants";
 import ProjectCard from "./_components/ProjectCard";
 import SocialChip from "./_components/SocialChip";
 import { Timeline } from "./_components/Timeline";
@@ -79,6 +79,17 @@ const page = () => {
           <h2 className="font-semibold text-base">Selected Works</h2>
           <div className="flex flex-col gap-1">
             {PROJECTS.map((project, index) => (
+              <ProjectCard key={index} project={project} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-12" aria-label="Open source projects">
+        <div className="space-y-6">
+          <h2 className="font-semibold text-base">OSS</h2>
+          <div className="flex flex-col gap-1">
+            {OSS.map((project, index) => (
               <ProjectCard key={index} project={project} />
             ))}
           </div>
