@@ -68,6 +68,20 @@ const SOCIALS: Social[] = [
 
 const PROJECTS: Project[] = [
   {
+    title: "The Tuan Kuase",
+    description:
+      "Private club website for programs, expeditions, and publications with content management system.",
+    href: "https://thetuankuase.id",
+    year: "2026",
+  },
+  {
+    title: "Klinik Adera",
+    description:
+      "Family healthcare clinic website with doctor directory, health calculator, and content management system.",
+    href: "https://klinikadera.co.id",
+    year: "2026",
+  },
+  {
     title: "Chandra Karya Nusantara",
     description: "Building construction company landing website with content management system.",
     href: "https://cknkonstruksi.com",
@@ -85,13 +99,6 @@ const PROJECTS: Project[] = [
   //   href: "https://kawanantar.rfqm.me",
   //   year: "2025",
   // },
-  {
-    title: "The Tuan Kuase",
-    description:
-      "Private club website for programs, expeditions, and publications with content management system.",
-    href: "https://thetuankuase.id",
-    year: "2026",
-  },
 ];
 
 const OSS: Project[] = [
