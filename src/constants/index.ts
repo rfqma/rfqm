@@ -5,7 +5,13 @@ const EXPERIENCES: Experience[] = [
     startTime: "2025-01-01",
     endTime: null,
     site: "Techave",
-    role: "Frontend Developer",
+    role: "Frontend Engineer",
+  },
+  {
+    startTime: "2024-02-01",
+    endTime: "2024-06-01",
+    site: "PT. Otak Kanan",
+    role: "Fullstack Web Developer Intern",
   },
   {
     startTime: "2023-07-01",
@@ -38,22 +44,22 @@ const PROJECTS: Project[] = [
   {
     title: "Klinik Adera",
     description:
-      "Family healthcare clinic website with doctor directory, health calculator, and content management system.",
+      "Healthcare clinic website with doctor directory, health calculator, and content management system.",
     href: "https://klinikadera.co.id",
     year: "2026",
   },
-  {
-    title: "Chandra Karya Nusantara",
-    description: "Building construction company landing website with content management system.",
-    href: "https://cknkonstruksi.com",
-    year: "2025",
-  },
-  {
-    title: "Donahue",
-    description: "Luxury fashion bag landing website with content management system.",
-    href: "https://donahuejogja.com",
-    year: "2025",
-  },
+  // {
+  //   title: "Chandra Karya Nusantara",
+  //   description: "Building construction company landing website with content management system.",
+  //   href: "https://cknkonstruksi.com",
+  //   year: "2025",
+  // },
+  // {
+  //   title: "Donahue",
+  //   description: "Luxury fashion bag landing website with content management system.",
+  //   href: "https://donahuejogja.com",
+  //   year: "2025",
+  // },
   // {
   //   title: "Kawan Antar",
   //   description: "WhatsApp based platform that connects customers with local drivers.",
