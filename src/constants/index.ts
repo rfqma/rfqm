@@ -1,4 +1,4 @@
-import type { Experience, Project, Social } from "@/types";
+import type { Experience, Project } from "@/types";
 
 const EXPERIENCES: Experience[] = [
   {
@@ -24,45 +24,6 @@ const EXPERIENCES: Experience[] = [
     endTime: "2021-11-30",
     site: "Mora Studio",
     role: "Videographer Freelance",
-  },
-];
-
-const SOCIALS: Social[] = [
-  {
-    label: "Email",
-    href: "mailto:hello@rfqm.me",
-    target: "_blank",
-    icon: "tabler:mail-filled",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/rfqma",
-    target: "_blank",
-    icon: "tabler:brand-github-filled",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/rfqma",
-    target: "_blank",
-    icon: "mdi:linkedin",
-  },
-  {
-    label: "Instagram",
-    href: "https://instagram.com/maruarchive",
-    target: "_blank",
-    icon: "basil:instagram-solid",
-  },
-  {
-    label: "Pexels",
-    href: "https://www.pexels.com/@rifqi-maulana-286675026/",
-    target: "_blank",
-    icon: "simple-icons:pexels",
-  },
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@maruarchive",
-    target: "_blank",
-    icon: "mdi:youtube",
   },
 ];
 
@@ -110,4 +71,4 @@ const OSS: Project[] = [
   },
 ];
 
-export { EXPERIENCES, OSS, PROJECTS, SOCIALS };
+export { EXPERIENCES, OSS, PROJECTS };

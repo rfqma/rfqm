@@ -1,14 +1,14 @@
 import type { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://rfqm.me";
-  const currentDate = new Date();
+// Update this when the page content changes meaningfully.
+const LAST_UPDATED = new Date("2026-11-19");
 
+export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: baseUrl,
-      lastModified: currentDate,
-      changeFrequency: "weekly",
+      url: "https://rfqm.me",
+      lastModified: LAST_UPDATED,
+      changeFrequency: "monthly",
       priority: 1,
     },
   ];

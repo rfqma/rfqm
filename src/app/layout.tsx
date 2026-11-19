@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -8,51 +8,52 @@ const manrope = Manrope({
   display: "swap",
 });
 
+const SITE_URL = "https://rfqm.me";
+const TITLE = "Rifqi Maulana - Frontend Engineer";
+const DESCRIPTION =
+  "Frontend engineer at Techave, based in Jakarta. Building apps, exploring cloud & DevOps. Open for projects.";
+const OG_IMAGE = {
+  url: "/opengraph.jpg",
+  width: 1200,
+  height: 630,
+  alt: TITLE,
+};
+
+export const viewport: Viewport = {
+  themeColor: "#111111",
+  colorScheme: "dark",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rfqm.me"),
+  metadataBase: new URL(SITE_URL),
   applicationName: "rfqm.me",
   title: {
-    default: "Rifqi Maulana - Frontend Developer",
+    default: TITLE,
     template: "%s | Rifqi Maulana",
   },
-  description:
-    "Frontend developer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications with React, Next.js, and TypeScript.",
+  description: DESCRIPTION,
   keywords: [
-    "rifqi maulana",
+    "Rifqi Maulana",
     "rfqm",
     "rfqma",
-    "maruarchive",
-    "photographer",
-    "fullstack developer",
+    "frontend engineer",
     "frontend developer",
-    "backend developer",
-    "software engineer",
-    "indonesia",
-    "web developer",
-    "yogyakarta",
     "react developer",
-    "nextjs developer",
-    "typescript developer",
-    "web development",
-    "portfolio",
+    "next.js developer",
+    "typescript",
+    "freelance web developer",
+    "cloud",
+    "devops",
+    "photography",
+    "jakarta",
+    "indonesia",
+    "fullstack",
+    "backend",
+    "infra"
   ],
-  authors: [{ name: "Rifqi Maulana", url: "https://rfqm.me" }],
+  authors: [{ name: "Rifqi Maulana", url: SITE_URL }],
   creator: "Rifqi Maulana",
   publisher: "Rifqi Maulana",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-icon.png",
-    other: [
-      {
-        rel: "icon",
-        url: "/icon1.png",
-        sizes: "32x32",
-        type: "image/png",
-      },
-    ],
-  },
-  manifest: "./manifest.json",
   robots: {
     index: true,
     follow: true,
@@ -64,59 +65,40 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  other: {
-    sitemap: "https://rfqm.me/sitemap.xml",
-  },
   alternates: {
-    canonical: "https://rfqm.me",
+    canonical: "/",
   },
   openGraph: {
-    title: "Rifqi Maulana - Frontend Developer",
+    title: TITLE,
+    description: DESCRIPTION,
     type: "website",
     locale: "en_US",
-    url: "https://rfqm.me",
-    description:
-      "Frontend developer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications.",
+    url: "/",
     siteName: "rfqm.me",
-    images: [
-      {
-        url: "https://rfqm.me/opengraph.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Rifqi Maulana - Frontend Developer",
-      },
-    ],
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rifqi Maulana - Frontend Developer",
-    description:
-      "Frontend developer based in Yogyakarta, Indonesia. Specializing in building modern, responsive web applications.",
-    images: [
-      {
-        url: "https://rfqm.me/opengraph.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Rifqi Maulana - Frontend Developer",
-      },
-    ],
+    title: TITLE,
+    description: DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  appleWebApp: {
+    title: "rfqm.me",
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const jsonLd = [
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
       "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
       name: "Rifqi Maulana",
-      url: "https://rfqm.me",
-      image: "https://rfqm.me/opengraph.jpg",
-      jobTitle: "Frontend Developer",
-      description: "Frontend developer based in Yogyakarta, Indonesia",
+      url: SITE_URL,
+      image: `${SITE_URL}/logo.png`,
+      jobTitle: "Frontend Engineer",
+      description: DESCRIPTION,
       worksFor: {
         "@type": "Organization",
         name: "Techave",
@@ -124,8 +106,7 @@ export default function RootLayout({
       },
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Yogyakarta",
-        addressRegion: "DI Yogyakarta",
+        addressLocality: "Jakarta",
         addressCountry: "ID",
       },
       sameAs: [
@@ -140,33 +121,38 @@ export default function RootLayout({
         "React",
         "Next.js",
         "TypeScript",
-        "Web Development",
+        "Cloud Computing",
+        "DevOps",
         "Photography",
+        "Fullstack",
+        "Backend",
+        "Infra"
       ],
-      email: "hello@rfqm.me",
     },
     {
-      "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
       name: "Rifqi Maulana",
-      url: "https://rfqm.me",
-      description: "Personal portfolio of Rifqi Maulana - Frontend Developer",
-      author: {
-        "@type": "Person",
-        name: "Rifqi Maulana",
-      },
+      url: SITE_URL,
+      description: DESCRIPTION,
+      author: { "@id": `${SITE_URL}/#person` },
     },
-  ];
+  ],
+};
 
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en" className="bg-background">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="apple-mobile-web-app-title" content="rfqm.me" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
         />
       </head>
       <body className={`${manrope.className} antialiased`} suppressHydrationWarning>

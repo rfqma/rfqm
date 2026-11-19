@@ -1,12 +1,3 @@
-import type { IconifyIcon } from "@iconify/react";
-
-interface Social {
-  label: string;
-  href: string;
-  target: string;
-  icon: string | IconifyIcon;
-}
-
 interface Experience {
   startTime: string;
   endTime?: string | null;
@@ -21,4 +12,4 @@ interface Project {
   year: string;
 }
 
-export type { Experience, Project, Social };
+export type { Experience, Project };
